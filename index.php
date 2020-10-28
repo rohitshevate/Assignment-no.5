@@ -443,7 +443,7 @@
 				<div id="Registration">
 					<h1>Registration Form</h1>
 				</div>
-				<form name="form" id="form1" action=""  method="POST" onSubmit="return validateForm()">
+				<form name="form" id="form1" action="insert.php"  method="POST" onSubmit="return validateForm()">
 					<div class="input">Name: <input id="name" name="name1" type="text" placeholder="Enter full name.."></div>
 					<span id="nam1"></span>
 					<div class="input">
@@ -653,41 +653,4 @@ function validateForm(){
 </script>
 </body>
 </html>
-
-<?php
-include "connection.php";
-if(isset($_POST['submits'])){
-    $names = $_POST['name1'];
-    $genders = $_POST['r'];
-    $emails = $_POST['email1'];
-    $ages = $_POST['age1'];
-    $mobiles = $_POST['mobile1'];
-    $states = $_POST['state1'];
-    $comments = $_POST['comment1'];
-
-    $insertquery = "insert into showregistration(
-		name,gender,email,age,mobile,state,comment) values('$names','$genders',
-        '$emails','$ages','$mobiles','$states','$comments') ";
-
-        $res = mysqli_query($con,$insertquery);
-
-        if($res){
-            ?>
-            <script>
-                alert("data inserted properly");
-                </script>
-                <?php
-        }else{
-        ?>
-            <script>
-                alert("data not inserted properly");
-                </script>
-                <?php
-        }       
-}
-
-
-		
-
-?>
 
